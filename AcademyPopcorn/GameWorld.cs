@@ -34,15 +34,15 @@ namespace AcademyPopcorn
             // Initialize ceiling
             for (int i = wallStartRow; i < WorldCols; i++)
             {
-                IndestructibleBlock ceiling = new IndestructibleBlock(new MatrixCoords(wallStartRow, i));
+                Block ceiling = new IndestructibleBlock(new MatrixCoords(wallStartRow, i));
                 engine.AddObject(ceiling);
             }
 
             // Initialize indestructible walls
             for (int i = wallStartRow + 1; i < WorldRows; i++)
             {
-                IndestructibleBlock leftWallBlock = new IndestructibleBlock(new MatrixCoords(i, 0));
-                IndestructibleBlock rightWallBlock = new IndestructibleBlock(new MatrixCoords(i, GetCols - 1));
+                Block leftWallBlock = new IndestructibleBlock(new MatrixCoords(i, 0));
+                Block rightWallBlock = new IndestructibleBlock(new MatrixCoords(i, GetCols - 1));
                 engine.AddObject(leftWallBlock);
                 engine.AddObject(rightWallBlock);
             }
@@ -67,10 +67,10 @@ namespace AcademyPopcorn
                 }
             }
 
-            // Gift Blocks
+            // Initialize Gift Blocks
             for (int i = startCol; i < endCol; i++)
             {
-                if (i % 4 == 0)
+                if (i % 8 == 0)
                 {
                     Block currBlock = new GiftBlock(new MatrixCoords(startRow - 1, i));
                     engine.AddObject(currBlock);
@@ -100,7 +100,7 @@ namespace AcademyPopcorn
 
             // Unstoppable Ball Test
 
-            UnstoppableBall theBall = new UnstoppableBall(new MatrixCoords(WorldRows / 2, 0),
+            Ball theBall = new UnstoppableBall(new MatrixCoords(WorldRows / 2, 0),
                 new MatrixCoords(-1, 1));
             engine.AddObject(theBall);
 

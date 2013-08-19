@@ -61,7 +61,7 @@ namespace AcademyPopcorn
 
                 scene.Append(Environment.NewLine);
             }
-
+            scene.Append("Use A and D to control Paddle, Spacebar to shoot");
             Console.WriteLine(scene.ToString());
         }
 

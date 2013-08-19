@@ -15,6 +15,7 @@ namespace AcademyPopcorn
         protected Racket playerRacket;
         private int sleepTime;
 
+        
         public Engine(IRenderer renderer, IUserInterface userInterface) : 
             this(renderer, userInterface, 500)
         {
@@ -28,7 +29,6 @@ namespace AcademyPopcorn
             this.movingObjects = new List<MovingObject>();
             this.staticObjects = new List<GameObject>();
             this.sleepTime = sleepTime;
-
         }
 
         private void AddStaticObject(GameObject obj)
@@ -54,7 +54,6 @@ namespace AcademyPopcorn
                 if (obj is Racket)
                 {
                     AddRacket(obj);
-
                 }
                 else
                 {
@@ -65,7 +64,6 @@ namespace AcademyPopcorn
 
         private void AddRacket(GameObject obj)
         {
-            //TODO: we should remove the previous racket from this.allObjects
             this.allObjects.RemoveAll(item => item is Racket);
             this.staticObjects.RemoveAll(item => item is Racket);
             this.playerRacket = obj as Racket;
