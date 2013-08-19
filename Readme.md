@@ -1,13 +1,20 @@
  Academy Popcorn is console based game written in C#. The player controls a "paddle" which prevents a ball from falling from the playing field, attempting to bounce it against a number of bricks. The ball striking a brick causes the brick to disappear.
 The project is made using the ready-made Academy Popcorn API for the Telerik Academy Object-oriented programming course workshop assignment.
 
-Important classes
+Controls and instructions:
+- Use "A" and "D" to move the paddle left and rigth
+- Use "Spacebar" to shoot
+- "#" blocks are destroyable
+- "$" blocks drop gifts (falling "G") which give the paddle shooting ability
+- "H" blocks are Impassable by the standard ball
+- "E" blocks explode
+
+Important classes:
 - GameObject: base class for objects in the game
 - IRenderer: interface for rendering objects
 - IUserInterface: interface for handling input
 - Engine: runs the game, checks for input and renders the scene
 - CollisionDispatcher: notifies objects of their collisions
-
 
 Workshop tasks:
 
