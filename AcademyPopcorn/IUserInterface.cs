@@ -13,6 +13,8 @@ namespace AcademyPopcorn
 
         event EventHandler OnActionPressed;
 
+        event EventHandler OnEscPressed;
+
         void ProcessInput();
     }
 }

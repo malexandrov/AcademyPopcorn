@@ -9,36 +9,42 @@ namespace AcademyPopcorn
     {
         public void ProcessInput()
         {
+            while (Console.KeyAvailable)
+            {
+                var keyInfo = Console.ReadKey(true);
+                //while (Console.KeyAvailable) Console.ReadKey(true);
 
-                while (Console.KeyAvailable)
+                if (keyInfo.Key.Equals(ConsoleKey.A))
                 {
-                    var keyInfo = Console.ReadKey(true);
-                    //while (Console.KeyAvailable) Console.ReadKey(true);
-
-                    if (keyInfo.Key.Equals(ConsoleKey.A))
+                    if (this.OnLeftPressed != null)
                     {
-                        if (this.OnLeftPressed != null)
-                        {
-                            this.OnLeftPressed(this, new EventArgs());
-                        }
+                        this.OnLeftPressed(this, new EventArgs());
                     }
+                }
 
-                    if (keyInfo.Key.Equals(ConsoleKey.D))
+                if (keyInfo.Key.Equals(ConsoleKey.D))
+                {
+                    if (this.OnRightPressed != null)
                     {
-                        if (this.OnRightPressed != null)
-                        {
-                            this.OnRightPressed(this, new EventArgs());
-                        }
+                        this.OnRightPressed(this, new EventArgs());
                     }
+                }
 
-                    if (keyInfo.Key.Equals(ConsoleKey.Spacebar))
+                if (keyInfo.Key.Equals(ConsoleKey.Spacebar))
+                {
+                    if (this.OnActionPressed != null)
                     {
-                        if (this.OnActionPressed != null)
-                        {
-                            this.OnActionPressed(this, new EventArgs());
-                        }
+                        this.OnActionPressed(this, new EventArgs());
                     }
-                
+                }
+
+                if (keyInfo.Key.Equals(ConsoleKey.Escape))
+                {
+                    if (this.OnEscPressed != null)
+                    {
+                        this.OnEscPressed(this, new EventArgs());
+                    }
+                }
             }
         }
 
@@ -47,5 +53,7 @@ namespace AcademyPopcorn
         public event EventHandler OnRightPressed;
 
         public event EventHandler OnActionPressed;
+
+        public event EventHandler OnEscPressed;
     }
 }

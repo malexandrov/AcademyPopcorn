@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace AcademyPopcorn
 {
@@ -24,7 +25,10 @@ namespace AcademyPopcorn
             {
                 gameEngine.ShootPlayerRacket();
             };
-
+            keyboard.OnEscPressed += (sender, eventInfo) =>
+            {
+                Process.GetCurrentProcess().Kill();
+            };
             world.Initialize(gameEngine);
 
             //
